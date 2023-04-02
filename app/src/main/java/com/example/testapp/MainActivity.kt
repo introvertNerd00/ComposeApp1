@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.testapp.ui.theme.TestAppTheme
 
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!", textAlign = TextAlign.Center)
+    Text(text = "Hello $name!", textAlign = TextAlign.Center, textDecoration = TextDecoration.LineThrough)
 
 }
 
