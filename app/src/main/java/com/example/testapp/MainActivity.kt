@@ -3,24 +3,17 @@ package com.example.testapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.testapp.ui.theme.TestAppTheme
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    BirthdayGreetingWithText( message = "Happy Birthday Hashaam!", from = "- from Hamza")
                 }
             }
         }
@@ -40,29 +33,24 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement =Arrangement.Center,
-        modifier = Modifier.background(Color.Cyan)) {
+fun BirthdayGreetingWithText(message: String, from: String, modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
         Text(
-            text = "Hello $name!",
-            textAlign = TextAlign.Center,
-            textDecoration = TextDecoration.LineThrough
+            text = message,
+            fontSize = 36.sp,
         )
         Text(
-            text = "Hello Hamza",
-            textAlign = TextAlign.Center,
-            textDecoration = TextDecoration.LineThrough
+            text = from,
+            fontSize = 24.sp,
         )
     }
-
 }
 
-@Preview(showBackground = true,
-showSystemUi = true)
+
+@Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun BirthdayCardPreview() {
     TestAppTheme {
-        Greeting("Android")
+        BirthdayGreetingWithText(message = "Happy Birthday Hashaam!", from ="- from Hamza")
     }
 }
