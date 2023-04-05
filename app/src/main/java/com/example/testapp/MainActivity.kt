@@ -50,7 +50,8 @@ fun BirthdayGreetingWithImage(message: String, from: String) {
             modifier = Modifier
             .fillMaxHeight().fillMaxWidth(),
         contentScale = ContentScale.Crop)
-        BirthdayGreetingWithText(message = message, from = from)
+        BirthdayGreetingWithText(message = stringResource(R.string.birthday_text), from = stringResource(
+                    R.string.sender_text))
     }
 }
 
